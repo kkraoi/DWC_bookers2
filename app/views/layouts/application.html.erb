@@ -12,8 +12,68 @@
 
   <body>
     <header class="p-3">
-      ヘッダーです
+      <nav>
+        <div class="">
+          <p>
+            <%= link_to "Bookers", root_path %>
+          </p>
+          <ul>
+            <% if user_signed_in? # ログイン済み %>
+              <li>
+                <%= link_to user_path(current_user.id) do %>
+                  <%# TODO 後でアイコン %>
+                  <span></span>Home
+                <% end %>
+              </li>
+              <li>
+                <%= link_to users_path do %>
+                  <%# TODO 後でアイコン %>
+                  <span></span>Users
+                <% end %>
+              </li>
+              <li>
+                <%= link_to books_path do %>
+                  <%# TODO 後でアイコン %>
+                  <span></span>Books
+                <% end %>
+              </li>
+              <li>
+                <%= link_to destroy_user_session_path, method: :delete do %>
+                  <%# TODO 後でアイコン %>
+                  <span></span>Log Out
+                <% end %>
+              </li>
+            <% else # 未ログイン %>
+              <li>
+                <%= link_to root_path do %>
+                  <%# TODO 後でアイコン %>
+                  <span></span>Home
+                <% end %>
+              </li>
+              <li>
+                <%= link_to about_path do %>
+                  <%# TODO 後でアイコン %>
+                  <span></span>About
+                <% end %>
+              </li>
+              <li>
+                <%= link_to new_user_registration_path do %>
+                  <%# TODO 後でアイコン %>
+                  <span></span>Sign Up
+                <% end %>
+              </li>
+              <li>
+                <%= link_to new_user_session_path do %>
+                  <%# TODO 後でアイコン %>
+                  <span></span>Log In
+                <% end %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </nav>
     </header>
+
     <%= yield %>
   </body>
 </html>
