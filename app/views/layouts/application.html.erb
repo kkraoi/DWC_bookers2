@@ -20,11 +20,11 @@
             <%= link_to "Bookers", root_path %>
           </p>
           <ul>
-            <% if user_signed_in? # ログイン済み %>
+            <% if user_signed_in? %>
               <li>
-                <%= link_to user_path(current_user.id) do %>
+                <%#= link_to user_path(current_user.id) do %>
                   <i class="fa-solid fa-house"></i>Home
-                <% end %>
+                <%# end %>
               </li>
               <li>
                 <%= link_to users_path do %>
@@ -41,7 +41,7 @@
                   <i class="fa-solid fa-arrow-right-from-bracket"></i>Log Out
                 <% end %>
               </li>
-            <% else # 未ログイン %>
+            <% else %>
               <li>
                 <%= link_to root_path do %>
                   <i class="fa-solid fa-house"></i>Home
