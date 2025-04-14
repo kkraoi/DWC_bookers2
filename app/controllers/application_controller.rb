@@ -1,9 +1,9 @@
 class ApplicationController < ActionController::Base
-  # 他人のアクセス防止
-  before_action :is_matching_login_user, only: [:edit, :update]
-
   # except以外のページは、ログインしていない時にアクセスするとログイン画面へ遷移
   before_action :authenticate_user!, except: [:top, :about]
+
+  # 他人のアクセス防止
+  before_action :is_matching_login_user, only: [:edit, :update]
 
   # ユーザ登録、ログイン認証時にconfigure_permitted_parameters実行
   before_action :configure_permitted_parameters, if: :devise_controller?
