@@ -19,10 +19,17 @@
     <div>
       <h2>User info</h2>
       <p>
-        <img src="" alt="">
+        <%= image_tag @user.get_profile_image(100, 100) %>
       </p>
       <table>
-        <%# TODO %>
+        <tr>
+          <th>name</th>
+          <td><%= @user.name %></td>
+        </tr>
+        <tr>
+          <th>introduction</th>
+          <td><%= @user.introduction %></td>
+        </tr>
       </table>
       <%= link_to "/path" do %>
         <i class="fa-solid fa-user-gear"></i><%# TODO %>
@@ -43,7 +50,7 @@
           <%= f.text_area :body %>
         </div>
 
-        <%= f.submit "Create Bookers" %>
+        <%= f.submit "Create Book" %>
       <% end %>
     </div>
   </aside>
