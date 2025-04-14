@@ -8,7 +8,7 @@ class User < ApplicationRecord
 
   has_one_attached :profile_image
 
-  validates :name, presence: true, length: { in: 2..20 }
+  validates :name, presence: true, length: { in: 2..20 }, uniqueness: true
   validates :introduction, length: { maximum: 50 }
 
   # 画像をリサイズして返す。画像が添付されてなければ、デフォルト画像(jpeg)を返す。
