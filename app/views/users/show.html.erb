@@ -1,0 +1,13 @@
+<!--エラーメッセージ-->
+<%= render 'common/error', model: @book %>
+
+<div class="">
+  <!--左面-->
+  <%= render 'common/side', user: @user, book: @book %>
+
+  <!--右面-->
+  <div>
+    <h1>Books</h1>
+    <%= render 'common/books_table', books: @books %>
+  </div>
+</div>
