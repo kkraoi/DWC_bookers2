@@ -15,6 +15,20 @@
         <th></th>
       </tr>
     </thead>
-    <tbody></tbody>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td>
+            <%= image_tag user.get_profile_image(100, 100) %>
+          </td>
+          <td>
+            <%= user.name %>
+          </td>
+          <td>
+            show
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
   </table>
 </div>
