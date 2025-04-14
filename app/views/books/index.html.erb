@@ -70,12 +70,12 @@
         <% @books.each do |book| %>
           <tr>
             <td>
-              <!--TODO-->
-              ユーザー画像
+              <%= image_tag book.user.get_profile_image(100, 100) %>
             </td>
             <td>
-              <!--TODO リンク-->
-              <%= book.title %>
+              <%= link_to book_path(book.id) do %>
+                <%= book.title %>
+              <% end %>
             </td>
             <td>
               <%= book.body %>
