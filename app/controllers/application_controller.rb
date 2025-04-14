@@ -1,4 +1,7 @@
 class ApplicationController < ActionController::Base
+  # 他人のアクセス防止
+  before_action :is_matching_login_user, only: [:edit, :update]
+
   # ユーザ登録、ログイン認証時にconfigure_permitted_parameters実行
   before_action :configure_permitted_parameters, if: :devise_controller?
 
