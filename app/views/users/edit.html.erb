@@ -1,2 +1,23 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<!--エラーメッセージ-->
+<%= render 'common/error', model: @user %>
+
+<h1>User info</h1>
+
+<%= form_with(model: @user, url: user_path(@user.id), method: :patch) do |f| %>
+  <div>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+
+  <div>
+    <label for="inputImage">Image</label><br>
+    <%= f.file_field :profile_image, accept: "image/*" %>  
+  </div>
+
+  <div>
+    <%= f.label :introduction %><br>
+    <%= f.text_area :introduction %>
+  </div>
+
+  <%= f.submit "Update Book" %>
+<% end %>

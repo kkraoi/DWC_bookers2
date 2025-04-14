@@ -8,6 +8,8 @@ class User < ApplicationRecord
 
   has_one_attached :profile_image
 
+  validates :name, presence: true
+
   # 画像をリサイズして返す。画像が添付されてなければ、デフォルト画像(jpeg)を返す。
   #
   # ImageMagickとimage_processingのインストールが必要。
