@@ -1,2 +1,47 @@
-<h1>Books#index</h1>
-<p>Find me in app/views/books/index.html.erb</p>
+<!--エラーメッセージ-->
+<% if @book.errors.any? %>
+  <div class="" role="alert">
+    <h3>
+      <%= @book.errors.count %> errors prohibited this obj from being saved:
+    </h3>
+    <ul>
+    <% @book.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<div class="">
+  <!--User info-->
+  <div>
+    <h2>User info</h2>
+    <p>
+      <img src="" alt="">
+    </p>
+    <table>
+      <%# TODO %>
+    </table>
+    <%= link_to "/path" do %>
+      <i class="fa-solid fa-user-gear"></i><%# TODO %>
+    <% end %>
+  </div>
+
+  <!--New book-->
+  <div>
+    <h2>New book</h2>
+    <%= form_with(model: @book) do |f| %>
+      <div class="">
+        <p>Title</p>
+        <%= f.text_field :title %>
+      </div>
+
+      <div class="">
+        <p>Opinion</p>
+        <%= f.text_area :body %>
+      </div>
+
+      <%= f.submit "Create Bookers" %>
+    <% end %>
+  </div>
+</div>
