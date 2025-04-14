@@ -13,35 +13,69 @@
 <% end %>
 
 <div class="">
-  <!--User info-->
+  <!--左面-->
+  <aside class="">
+    <!--User info-->
+    <div>
+      <h2>User info</h2>
+      <p>
+        <img src="" alt="">
+      </p>
+      <table>
+        <%# TODO %>
+      </table>
+      <%= link_to "/path" do %>
+        <i class="fa-solid fa-user-gear"></i><%# TODO %>
+      <% end %>
+    </div>
+
+    <!--New book-->
+    <div>
+      <h2>New book</h2>
+      <%= form_with(model: @book) do |f| %>
+        <div class="">
+          <p>Title</p>
+          <%= f.text_field :title %>
+        </div>
+
+        <div class="">
+          <p>Opinion</p>
+          <%= f.text_area :body %>
+        </div>
+
+        <%= f.submit "Create Bookers" %>
+      <% end %>
+    </div>
+  </aside>
+
+  <!--右面-->
   <div>
-    <h2>User info</h2>
-    <p>
-      <img src="" alt="">
-    </p>
+    <h2>Books</h2>
     <table>
-      <%# TODO %>
+      <thead>
+        <tr>
+          <th></th>
+          <th>Title</th>
+          <th>Opinion</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @books.each do |book| %>
+          <tr>
+            <td>
+              <!--TODO-->
+              ユーザー画像
+            </td>
+            <td>
+              <!--TODO リンク-->
+              <%= book.title %>
+            </td>
+            <td>
+              <%= book.body %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
     </table>
-    <%= link_to "/path" do %>
-      <i class="fa-solid fa-user-gear"></i><%# TODO %>
-    <% end %>
-  </div>
-
-  <!--New book-->
-  <div>
-    <h2>New book</h2>
-    <%= form_with(model: @book) do |f| %>
-      <div class="">
-        <p>Title</p>
-        <%= f.text_field :title %>
-      </div>
-
-      <div class="">
-        <p>Opinion</p>
-        <%= f.text_area :body %>
-      </div>
-
-      <%= f.submit "Create Bookers" %>
-    <% end %>
   </div>
 </div>
