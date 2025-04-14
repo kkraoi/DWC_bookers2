@@ -13,8 +13,7 @@ class ApplicationController < ActionController::Base
   # @param resource [Instance] ログインを実行したモデルのデータ、今回の場合はつまりログインしたUserのインスタンス
   # @return [String] ログイン(サインイン)後にリダイレクトするパス
   def after_sign_in_path_for(resource)
-    # user_path(current_user.id) TODO後で
-    users_path
+    user_path(current_user.id)
   end
 
   # サインアウト後にどこに遷移するかを設定しているdeviseフックメソッド
