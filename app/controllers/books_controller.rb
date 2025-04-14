@@ -53,4 +53,13 @@ class BooksController < ApplicationController
   def post_book_params
     params.require(:book).permit(:title, :body)
   end
+
+  # 他人のアクセス防止
+  def is_matching_login_user
+    book = Book.find(params[:id])
+    user = User.find(book.user.id)
+    unless user.id == current_user.id
+      redirect_to user_path(current_user.id)
+    end
+  end
 end
