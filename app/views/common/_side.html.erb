@@ -1,0 +1,42 @@
+  <aside class="col-md-3">
+    <!--User info-->
+    <div>
+      <h2>User info</h2>
+      <p>
+        <%= image_tag user.get_profile_image(100, 100) %>
+      </p>
+      <table class="table">
+        <tr>
+          <th>name</th>
+          <td><b><%= user.name %></b></td>
+        </tr>
+        <tr>
+          <th>introduction</th>
+          <td><%= user.introduction %></td>
+        </tr>
+      </table>
+      <div class="mt-4">
+        <%= link_to edit_user_path(user.id), class: "btn btn-outline-secondary btn-block" do %>
+          <i class="fa-solid fa-user-gear"></i>
+        <% end %>
+      </div>
+    </div>
+
+    <!--New book-->
+    <div class="mt-5">
+      <h2>New book</h2>
+      <%= form_with(model: book) do |f| %>
+        <div class="">
+          <p>Title</p>
+          <%= f.text_field :title, class: "form-control" %>
+        </div>
+
+        <div class="mt-2">
+          <p>Opinion</p>
+          <%= f.text_area :body, class: "form-control" %>
+        </div>
+
+        <%= f.submit "Create Book", class: "mt-3 btn btn-success" %>
+      <% end %>
+    </div>
+  </aside>

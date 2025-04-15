@@ -6,11 +6,82 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <script src="https://kit.fontawesome.com/470093f27d.js" crossorigin="anonymous"></script>
+
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <header class="mb-3">
+      <nav class="navbar navbar-expand-lg bg-dark text-light">
+        <div class="container">
+          <p>
+            <%= link_to "Bookers", root_path, class: 'nav-link' %>
+          </p>
+          <ul class="navbar-nav">
+            <% if user_signed_in? %>
+              <li>
+                <%= link_to user_path(current_user.id), class: "nav-link" do %>
+                  <i class="fa-solid fa-house"></i>Home
+                <% end %>
+              </li>
+              <li>
+                <%= link_to users_path, class: "nav-link" do %>
+                  <i class="fa-solid fa-users"></i>Users
+                <% end %>
+              </li>
+              <li>
+                <%= link_to books_path, class: "nav-link" do %>
+                  <i class="fa-solid fa-book-open"></i>Books
+                <% end %>
+              </li>
+              <li>
+                <%= link_to destroy_user_session_path, class: "nav-link", method: :delete do %>
+                  <i class="fa-solid fa-right-from-bracket"></i>Log out
+                <% end %>
+              </li>
+            <% else %>
+              <li>
+                <%= link_to root_path, class: "nav-link" do %>
+                  <i class="fa-solid fa-house"></i>Home
+                <% end %>
+              </li>
+              <li>
+                <%= link_to about_path, class: "nav-link" do %>
+                  <i class="fa-solid fa-link"></i>About
+                <% end %>
+              </li>
+              <li>
+                <%= link_to new_user_registration_path, class: "nav-link" do %>
+                  <i class="fa-solid fa-user-plus"></i>Sign up
+                <% end %>
+              </li>
+              <li>
+                <%= link_to new_user_session_path, class: "nav-link" do %>
+                  <i class="fa-solid fa-right-to-bracket"></i>Log in
+                <% end %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <% flash.each do |message_type, message| %>
+      <div class='flash-message <%= message_type %>'>
+        <%= message %>
+      </div>
+    <% end %>
+
     <%= yield %>
+
+    <footer class="mt-5">
+      <div class="container">
+        <div class="row">
+          <p class="mx-auto">CopyRight Infratop.inc</p>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

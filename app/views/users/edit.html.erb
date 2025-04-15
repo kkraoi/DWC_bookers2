@@ -1,0 +1,30 @@
+<!--エラーメッセージ-->
+<%= render 'common/error', model: @user %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 mx-auto">
+      <h1>User info</h1>
+
+      <%= form_with(model: @user, url: user_path(@user.id), method: :patch) do |f| %>
+        <div>
+          <%= f.label :name %><br>
+          <%= f.text_field :name, class: "form-control" %>
+        </div>
+
+        <div class="mt-3">
+          <label for="inputImage">Image</label><br>
+          <%= f.file_field :profile_image, accept: "image/*" %>  
+        </div>
+
+        <div class="mt-3">
+          <%= f.label :introduction %><br>
+          <%= f.text_area :introduction, class: "form-control" %>
+        </div>
+
+        <%= f.submit "Update User", class: "mt-3 btn btn-secondary" %>
+      <% end %>
+
+    </div>
+  </div>
+</div>

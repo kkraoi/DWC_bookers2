@@ -1,0 +1,11 @@
+@use '~bootstrap/scss/bootstrap';
+@use "reset";
+
+body {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.bg-dark a {
+  color: inherit;
+}
