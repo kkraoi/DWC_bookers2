@@ -1,1 +1,11 @@
 @use '~bootstrap/scss/bootstrap';
+@use "reset";
+
+// .header {
+//   a {
+//     color: white;
+//   }
+// }
+.bg-dark a {
+  color: inherit;
+}

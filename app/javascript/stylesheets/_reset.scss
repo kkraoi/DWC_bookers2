@@ -1,0 +1,36 @@
+/****** Elad Shechter's RESET *******/
+/*** box sizing border-box for all elements ***/
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+figure {
+	margin: 0;
+}
+input::-moz-focus-inner {
+	border: 0;
+	margin: 0;
+	padding: 0;
+}
+menu,
+dl,
+ul,
+ol,
+li,
+dd {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+p {
+	margin: 0;
+}
+cite {
+	font-style: normal;
+}
+fieldset {
+	border-width: 0;
+	margin: 0;
+	padding: 0;
+}
