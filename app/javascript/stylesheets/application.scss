@@ -1,11 +1,11 @@
 @use '~bootstrap/scss/bootstrap';
 @use "reset";
 
-// .header {
-//   a {
-//     color: white;
-//   }
-// }
+body {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
 .bg-dark a {
   color: inherit;
 }
