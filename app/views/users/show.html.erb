@@ -7,7 +7,7 @@
     <%= render 'common/side', user: @user, book: @book %>
 
     <!--右面-->
-    <div class="col-md-8">
+    <div class="col-md-8 offset-md-1">
       <h1>Books</h1>
       <%= render 'common/books_table', books: @books %>
     </div>
